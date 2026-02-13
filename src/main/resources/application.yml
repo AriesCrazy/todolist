@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: todolist
+
+  datasource:
+    url: jdbc:mysql://192.168.0.222:3306/todolist?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # MyBatis-Plus ??????
+  mybatis-plus:
+    configuration:
+      map-underscore-to-camel-case: true          # ??????
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  # ???????? SQL??????
+    global-config:
+      db-config:
+        id-type: auto                             # ????
+        logic-delete-field: deleted               # ??????????
+        logic-delete-value: 1
+        logic-not-delete-value: 0
+    # mapper-locations: classpath*:/mapper/**/*.xml   # ?????? xml??????
+
+# ??????????????
+logging:
+  level:
+    com.example.todolist: debug
+    com.baomidou.mybatisplus: debug
