@@ -1,6 +1,5 @@
 package com.example;
 
-import org.apache.ibatis.annotations.Mapper;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,7 +10,7 @@ import org.springframework.boot.jdbc.autoconfigure.DataSourceAutoConfiguration;
 // 优质的 spring/boot/data/security/cloud 框架中文文档尽在 => https://springdoc.cn
 
 @MapperScan("com.example.mapper")
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+@SpringBootApplication(scanBasePackages={"com.example.*"})
 public class App {
 
     public static void main(String[] args) {
