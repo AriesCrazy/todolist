@@ -23,10 +23,10 @@ public class TodoEntity {
 
     private Integer completed;
 
-    @TableField(fill = FieldFill.INSERT)
+//    @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createdAt;
 
-    @TableField(fill = FieldFill.INSERT_UPDATE)
+//    @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updatedAt;
 
     // 如果要用逻辑删除，可加
