@@ -21,7 +21,7 @@ public class TodoEntity {
 
     private String description;
 
-    private Boolean completed = false;
+    private Integer completed;
 
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createdAt;
