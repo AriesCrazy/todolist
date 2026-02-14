@@ -2,6 +2,7 @@ package com.example.controller;
 
 import com.example.entity.TodoEntity;
 import com.example.mapper.TodoMapper;
+import com.example.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,12 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class HelloController {
 
     @Autowired
     private TodoMapper todoMapper;
+
+    @Autowired
+    private TodoService todoService;
 
     @GetMapping("/hello")
     public String hello() {
@@ -32,6 +37,12 @@ public class HelloController {
     @GetMapping("/test")
     public String test() {
         List<TodoEntity> todoEntities = todoMapper.selectList(null);
+        return todoEntities.toString();
+    }
+
+    @GetMapping("/test1")
+    public String test1() {
+        Map<String, Object> todoEntities = todoService.getMap( null);
         return todoEntities.toString();
     }
 }
